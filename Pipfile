@@ -5,6 +5,21 @@ name = "pypi"
 
 [packages]
 django = "*"
+channels = {extras = ["daphne"], version = "*"}
+graphene-django = "*"
+django-filter = "*"
+django-split-settings = "*"
+psycopg2-binary = "*"
+python-decouple = "*"
+djangorestframework-simplejwt = "*"
+djangorestframework = "*"
+gunicorn = "*"
+django-sendgrid-v5 = "*"
+cryptography = "*"
+snapshottest = "*"
+django-cors-headers = "*"
+django-graphql-jwt = "*"
+chardet = "*"
 
 [dev-packages]
 
