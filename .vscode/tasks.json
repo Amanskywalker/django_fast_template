@@ -6,7 +6,7 @@
         {
             "label": "debug server",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python manage.py runserver"
+            "command": "DJANGO_ENV=local pipenv run python manage.py runserver 0.0.0.0:8003"
         },
         {
             "label": "debug server ASGI",

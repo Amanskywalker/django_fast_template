@@ -4,15 +4,16 @@ from datetime import timedelta
 # REST framework config (overrid in respective env files)
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    )
+        # 'user.authentication.CustomAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
 
 # rest JWT configuration
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),         # default JWT access token expiry time
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=720),         # default JWT access token expiry time
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),            # default JWT refresh token expiry time
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,

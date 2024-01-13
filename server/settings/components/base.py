@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # "drf_yasg",
     "graphene_django",
     "rest_framework",
+    "drf_spectacular",
 ]
 
 # custom Apps
@@ -127,14 +128,10 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = "static/"
 
-# GraphQL lib configurations
-GRAPHENE = {
-    "SCHEMA": "server.schema.schema",
-    "MIDDLEWARE": [
-        # 'graphql_jwt.middleware.JSONWebTokenMiddleware',
-        # 'graphene_django.debug.DjangoDebugMiddleware',
-    ],
+SPECTACULAR_SETTINGS = {
+    'TITLE': '',
+    'VERSION': '0.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'DESCRIPTION' : ''
+    # OTHER SETTINGS
 }
-
-# Token validation liveout days
-PASSWORD_RESET_TIMEOUT_DAYS = 1
