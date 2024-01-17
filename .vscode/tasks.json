@@ -4,34 +4,29 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "debug server",
+            "label": "database makemigrations",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python manage.py runserver 0.0.0.0:8003"
+            "command": "python3.11 -m pipenv run python manage.py makemigrations"
         },
         {
-            "label": "debug server ASGI",
+            "label": "database migration",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python manage.py collectstatic --noinput; DJANGO_ENV=local pipenv run daphne server.asgi:application"
+            "command": "python3.11 -m pipenv run python manage.py migrate"
         },
         {
-            "label": "database migrations",
+            "label": "runserver",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python manage.py makemigrations ; DJANGO_ENV=local pipenv run python manage.py migrate"
+            "command": "python3.11 -m pipenv run python manage.py runserver"
         },
         {
-            "label": "automated test",
+            "label": "pylint",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python -Wa manage.py test --noinput --verbosity 2 --failfast --debug-sql"
+            "command": "python3.11 -m pipenv run pylint --load-plugins pylint_django --load-plugins pylint_django.checkers.migrations --django-settings-module=server.settings $(git ls-files '*.py')"
         },
         {
-            "label": "automated test update snapshots",
+            "label": "test",
             "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python -Wa manage.py test --noinput --verbosity 2 --failfast --debug-sql --snapshot-update"
-        },
-        {
-            "label": "django shell",
-            "type": "shell",
-            "command": "DJANGO_ENV=local pipenv run python manage.py shell"
-        },
+            "command": "python3.11 -m pipenv run python manage.py test"
+        }
     ]
 }
